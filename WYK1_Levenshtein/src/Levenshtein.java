@@ -1,5 +1,3 @@
-package com.levenshtein;
-
 public class Levenshtein {
 
     public static int minimalDistance(String first, String second) {

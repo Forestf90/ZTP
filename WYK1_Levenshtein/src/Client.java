@@ -1,5 +1,3 @@
-package com.levenshtein;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,8 +10,8 @@ public class Client {
     public static void main(String[] args) {
 
         List<String> persons = new ArrayList<>();
-        String path ="names.txt";
-        String rootPerson = "Jan Kowalsky";
+        String path =args[0];
+        String rootPerson = args[1];
 
         try {
             persons = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
@@ -25,7 +23,7 @@ public class Client {
         int minimumLine =0;
 
         for(String s: persons){
-            int currentDistance =Levenshtein.minimalDistance(rootPerson, s);
+            int currentDistance = Levenshtein.minimalDistance(rootPerson, s);
             if(currentDistance<minimumDistance){
                 minimumDistance=currentDistance;
                 minimumLine=persons.indexOf(s);
